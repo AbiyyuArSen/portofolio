@@ -1,17 +1,27 @@
+"use client"
+
+import { useMemo, useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowUpRight, ExternalLink, Github } from "lucide-react"
 
 const projects = [
   {
-    title: "E-Commerce Platform",
+    title: "Smartfeeder Fish IoT",
+    category: "IoT",
+    image: "/proyek/ikan.jpeg",
+    imageAlt: "Tampilan proyek Smartfeeder Fish IoT",
     description:
-      "Platform e-commerce modern dengan fitur keranjang belanja, checkout, dan integrasi pembayaran. Dibangun dengan fokus pada performa dan user experience.",
-    technologies: ["Next.js", "TypeScript", "Stripe", "Tailwind CSS"],
+      "Sistem IoT untuk pemantauan dan pengendalian pakan ikan dengan fitur real-time monitoring dan notifikasi. Dibangun dengan fokus pada efisiensi dan kenyamanan pengguna.",
+    technologies: ["Node.js", "ESP32", "MQTT", "React"],
     github: "https://github.com",
     live: "#",
   },
   {
     title: "Dashboard Analytics",
+    category: "Web",
+    image: "/placeholder.jpg",
+    imageAlt: "Tampilan dashboard analytics",
     description:
       "Dashboard analitik real-time untuk monitoring metrics bisnis dengan visualisasi data interaktif dan laporan yang dapat di-customize.",
     technologies: ["React", "D3.js", "Node.js", "PostgreSQL"],
@@ -20,6 +30,9 @@ const projects = [
   },
   {
     title: "Mobile Banking App",
+    category: "Mobile",
+    image: "/placeholder.jpg",
+    imageAlt: "Tampilan aplikasi mobile banking",
     description:
       "Aplikasi mobile banking dengan fitur transfer, pembayaran tagihan, dan manajemen keuangan personal dengan keamanan tingkat tinggi.",
     technologies: ["React Native", "TypeScript", "Firebase", "Redux"],
@@ -28,6 +41,9 @@ const projects = [
   },
   {
     title: "Weather App",
+    category: "Web",
+    image: "/placeholder.jpg",
+    imageAlt: "Tampilan aplikasi cuaca",
     description: "Aplikasi cuaca dengan lokasi real-time dan prakiraan 7 hari ke depan.",
     technologies: ["React", "Weather API", "Geolocation"],
     github: "https://github.com",
@@ -35,6 +51,9 @@ const projects = [
   },
   {
     title: "Task Manager",
+    category: "Web",
+    image: "/placeholder.jpg",
+    imageAlt: "Tampilan aplikasi task manager",
     description: "Aplikasi manajemen tugas dengan fitur drag-and-drop dan kolaborasi tim.",
     technologies: ["Vue.js", "Firebase", "Vuetify"],
     github: "https://github.com",
@@ -43,6 +62,13 @@ const projects = [
 ]
 
 export function ProjectsSection() {
+  const [categoryFilter, setCategoryFilter] = useState<"All" | "IoT" | "Web" | "Mobile">("All")
+
+  const filteredProjects = useMemo(() => {
+    if (categoryFilter === "All") return projects
+    return projects.filter((project) => project.category === categoryFilter)
+  }, [categoryFilter])
+
   return (
     <section
       id="projects"
@@ -55,13 +81,40 @@ export function ProjectsSection() {
         </h2>
       </div>
       <div>
+        <div className="mb-6 flex flex-wrap gap-2">
+          {(["All", "IoT", "Web", "Mobile"] as const).map((category) => (
+            <button
+              key={category}
+              type="button"
+              onClick={() => setCategoryFilter(category)}
+              className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
+                categoryFilter === category
+                  ? "border-primary/40 bg-primary/15 text-primary"
+                  : "border-border bg-background/40 text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
         <ul className="group/list">
-          {projects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <li key={index} className="mb-12">
               <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
                 <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-lg border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-primary/20 lg:group-hover:bg-secondary/50 lg:group-hover:shadow-[0_0_30px_rgba(100,200,180,0.08)]" />
                 <header className="z-10 sm:col-span-2">
-                  <div className="flex gap-3">
+                  <div className="overflow-hidden rounded-2xl border border-border bg-secondary/40">
+                    <Image
+                      src={project.image}
+                      alt={project.imageAlt}
+                      width={640}
+                      height={400}
+                      className="h-40 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                    />
+                  </div>
+
+                  <div className="mt-4 flex gap-3">
                     <Link
                       href={project.github}
                       target="_blank"
@@ -93,6 +146,9 @@ export function ProjectsSection() {
                       <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block" />
                       <span>
                         {project.title}
+                        <span className="ml-2 rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 text-[11px] text-primary">
+                          {project.category}
+                        </span>
                         <ArrowUpRight className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" />
                       </span>
                     </Link>

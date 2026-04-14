@@ -1,5 +1,23 @@
 import Link from "next/link"
 
+const contactMethods = [
+  {
+    label: "Email",
+    value: "abiyyuajh@gmail.com",
+    href: "mailto:abiyyuajh@gmail.com",
+  },
+  {
+    label: "LinkedIn",
+    value: "Abiyyu Aryasena",
+    href: "https://www.linkedin.com/in/abiyyu-aryasena-271425385/",
+  },
+  {
+    label: "GitHub",
+    value: "github.com/abiyyu",
+    href: "https://github.com",
+  },
+]
+
 export function ContactSection() {
   return (
     <section
@@ -24,11 +42,26 @@ export function ContactSection() {
         </p>
         <div className="mt-8">
           <Link
-            href="mailto:hello@example.com"
+            href="mailto:abiyyuajh@gmail.com"
             className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-sm font-medium text-primary-foreground shadow-[0_0_20px_rgba(100,200,180,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_0_30px_rgba(100,200,180,0.5)]"
           >
             Kirim Email
           </Link>
+        </div>
+
+        <div className="mt-6 grid gap-3 sm:grid-cols-3">
+          {contactMethods.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="rounded-xl border border-border/70 bg-secondary/25 p-3 transition-colors hover:border-primary/30 hover:bg-secondary/40"
+            >
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{item.label}</p>
+              <p className="mt-1 text-sm font-medium text-foreground">{item.value}</p>
+            </Link>
+          ))}
         </div>
       </div>
     </section>
