@@ -22,46 +22,52 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
+      className="scroll-mt-20"
       aria-label="Kontak"
     >
-      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-        <h2 className="text-sm font-bold uppercase tracking-widest text-foreground lg:sr-only">
-          Kontak
-        </h2>
-      </div>
-      <div className="max-w-lg">
-        <h3 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-          Mari <span className="text-primary">Terhubung</span>
-        </h3>
-        <p className="mt-6 text-muted-foreground">
-          Saya selalu terbuka untuk mendiskusikan proyek baru, ide kreatif, atau kesempatan
-          untuk menjadi bagian dari visi Anda. Meskipun saya sedang tidak aktif mencari
-          peluang baru, inbox saya selalu terbuka. Jika ada pertanyaan atau sekadar ingin
-          menyapa, saya akan berusaha membalas pesan Anda!
-        </p>
-        <div className="mt-8">
-          <Link
-            href="mailto:abiyyuajh@gmail.com"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-8 py-3 text-sm font-medium text-primary-foreground shadow-[0_0_20px_rgba(100,200,180,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_0_30px_rgba(100,200,180,0.5)]"
-          >
-            Kirim Email
-          </Link>
+      <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+          <h2 className="text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+            Kontak
+          </h2>
+          <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+            Let&apos;s Collaborate
+          </span>
         </div>
 
-        <div className="mt-6 grid gap-3 sm:grid-cols-3">
-          {contactMethods.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="rounded-xl border border-border/70 bg-secondary/25 p-3 transition-colors hover:border-primary/30 hover:bg-secondary/40"
-            >
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{item.label}</p>
-              <p className="mt-1 text-sm font-medium text-foreground">{item.value}</p>
-            </Link>
-          ))}
+        <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <h3 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+              Mari Terhubung
+            </h3>
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
+              Saya terbuka untuk diskusi proyek, kolaborasi, maupun peluang profesional.
+              Jika kamu ingin membahas ide atau kerja sama, silakan hubungi saya melalui kanal di samping.
+            </p>
+            <div className="mt-6">
+              <Link
+                href="mailto:abiyyuajh@gmail.com"
+                className="inline-flex items-center justify-center bg-primary px-6 py-2.5 text-xs font-semibold uppercase tracking-wide text-primary-foreground transition-colors hover:opacity-90"
+              >
+                Kirim Email
+              </Link>
+            </div>
+          </div>
+
+          <div className="grid gap-3">
+            {contactMethods.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="border border-border bg-background p-3 transition-colors hover:border-primary"
+              >
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{item.label}</p>
+                <p className="mt-1 text-sm font-medium text-foreground">{item.value}</p>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </section>

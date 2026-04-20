@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 
 const experiences = [
@@ -76,8 +75,7 @@ const experiences = [
     imageAlt: "Dokumentasi kegiatan organisasi saat menjabat Wakil Ketua Umum",
     description:
       "Membantu ketua umum dalam pengambilan keputusan strategis organisasi, mengawal pelaksanaan program kerja, dan memperkuat koordinasi lintas divisi.",
-    technologies: ["HTML", "CSS", "JavaScript", "React"],
-  },
+    technologies: ["HTML", "CSS", "JavaScript", "React"],  },
   {
     period: "2025",
     position: "Pembawa Acara",
@@ -101,123 +99,120 @@ export function ExperienceSection() {
   }, [yearFilter])
 
   return (
-    <section
-      id="experience"
-      className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-      aria-label="Pengalaman kerja"
-    >
-      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-        <h2 className="text-sm font-bold uppercase tracking-widest text-foreground lg:sr-only">
-          Pengalaman
-        </h2>
-      </div>
-      <div>
+    <section id="experience" className="scroll-mt-24" aria-label="Work and organization experience">
+      <div className="relative overflow-hidden rounded-[1.05rem_2.25rem_1.15rem_2.35rem] border border-[#66d3e8]/24 bg-[linear-gradient(160deg,rgba(5,18,28,0.86)_0%,rgba(4,10,18,0.94)_66%,rgba(3,14,25,0.96)_100%)] p-6 md:p-8">
+        <div className="pointer-events-none absolute -right-16 top-10 h-40 w-44 rounded-full bg-[#73ddf2]/8 blur-3xl" />
+
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#9ddff0]/84">Experience</p>
+            <h2 className="mt-3 text-3xl font-bold uppercase leading-[0.92] text-[#ecfbff] md:text-5xl">Leadership Journey</h2>
+          </div>
+          <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[#9ddff0]/65">Organization & Event</span>
+        </div>
+
         <div className="mb-6 flex flex-wrap gap-2">
           <button
             type="button"
+            data-magnetic
+            data-cursor-label="Semua"
             onClick={() => setYearFilter("all")}
-            className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
+            className={`rounded-full border px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] transition-colors ${
               yearFilter === "all"
-                ? "border-primary/40 bg-primary/15 text-primary"
-                : "border-border bg-background/40 text-muted-foreground hover:text-foreground"
+                ? "border-[#7fe3f4]/70 bg-[#7fe3f4] text-[#06232e]"
+                : "border-[#64cfe5]/30 bg-transparent text-[#cdefff]/84 hover:border-[#7fe3f4]/55 hover:text-[#ecfbff]"
             }`}
           >
             Semua
           </button>
           <button
             type="button"
+            data-magnetic
+            data-cursor-label="2024"
             onClick={() => setYearFilter("2024")}
-            className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
+            className={`rounded-full border px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] transition-colors ${
               yearFilter === "2024"
-                ? "border-primary/40 bg-primary/15 text-primary"
-                : "border-border bg-background/40 text-muted-foreground hover:text-foreground"
+                ? "border-[#7fe3f4]/70 bg-[#7fe3f4] text-[#06232e]"
+                : "border-[#64cfe5]/30 bg-transparent text-[#cdefff]/84 hover:border-[#7fe3f4]/55 hover:text-[#ecfbff]"
             }`}
           >
             Tahun 2024
           </button>
           <button
             type="button"
+            data-magnetic
+            data-cursor-label="2025"
             onClick={() => setYearFilter("2025")}
-            className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
+            className={`rounded-full border px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] transition-colors ${
               yearFilter === "2025"
-                ? "border-primary/40 bg-primary/15 text-primary"
-                : "border-border bg-background/40 text-muted-foreground hover:text-foreground"
+                ? "border-[#7fe3f4]/70 bg-[#7fe3f4] text-[#06232e]"
+                : "border-[#64cfe5]/30 bg-transparent text-[#cdefff]/84 hover:border-[#7fe3f4]/55 hover:text-[#ecfbff]"
             }`}
           >
             Tahun 2025
           </button>
         </div>
 
-        <ol className="group/list">
+        <ol className="space-y-3">
           {filteredExperiences.map((experience, index) => (
-            <li key={index} className="mb-12">
-              <div className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-lg border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-primary/20 lg:group-hover:bg-secondary/50 lg:group-hover:shadow-[0_0_30px_rgba(100,200,180,0.08)]" />
-                <header
-                  className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground sm:col-span-2"
-                  aria-label={experience.period}
-                >
-                  <div className="overflow-hidden rounded-2xl border border-border bg-secondary/40">
-                    <Image
-                      src={experience.image}
-                      alt={experience.imageAlt}
-                      width={640}
-                      height={480}
-                      className="h-28 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                    />
-                  </div>
+            <li key={`${experience.period}-${experience.position}-${experience.company}`} className="[content-visibility:auto] [contain-intrinsic-size:0_360px]">
+              <article className="rounded-2xl border border-[#64cfe5]/24 bg-[linear-gradient(180deg,rgba(7,26,39,0.78)_0%,rgba(5,12,20,0.86)_100%)] p-4 md:p-5">
+                <div className="grid gap-4 md:grid-cols-[180px_1fr] md:gap-6">
+                  <header className="text-xs font-semibold uppercase tracking-wide text-[#9ddff0]/78" aria-label={experience.period}>
+                    <div className="overflow-hidden rounded-xl border border-[#64cfe5]/24 bg-white/[0.03]">
+                      <img
+                        src={experience.image}
+                        alt={experience.imageAlt}
+                        width={640}
+                        height={480}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-28 w-full object-cover grayscale transition duration-500 hover:grayscale-0 md:h-32"
+                      />
+                    </div>
 
-                  <span className="mt-4 block">{experience.period}</span>
-                </header>
-                <div className="z-10 sm:col-span-6">
-                  <h3 className="font-medium leading-snug text-foreground">
-                    <div>
+                    <div className="mt-3 flex items-center justify-between gap-2">
+                      <span className="rounded-full border border-[#64cfe5]/28 px-2.5 py-1 text-[10px] text-[#cdefff]/78">{experience.period}</span>
+                      <span className="font-mono text-[10px] text-[#9ddff0]/46">#{String(index + 1).padStart(2, "0")}</span>
+                    </div>
+                  </header>
+
+                  <div>
+                    <h3 className="font-medium leading-snug text-[#ecfbff]">
                       <Link
                         href={experience.companyUrl}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="group/link inline-flex items-baseline text-base font-medium leading-tight text-foreground transition-colors hover:text-primary focus-visible:text-primary"
+                        className="inline-flex items-baseline text-base font-semibold leading-tight text-[#ecfbff] transition-colors hover:text-[#d7f5ff] md:text-lg"
                       >
-                        <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block" />
                         <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
                           <span>{experience.position}</span>
-                          <span className="text-muted-foreground">·</span>
+                          <span className="text-[#9ddff0]/48">·</span>
                           <span>{experience.title}</span>
-                          <span className="text-muted-foreground">·</span>
-                          <span className="inline-block">
+                          <span className="text-[#9ddff0]/48">·</span>
+                          <span className="inline-block text-[#cdefff]/88">
                             {experience.company}
-                            <ArrowUpRight className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1 group-focus-visible/link:-translate-y-1 group-focus-visible/link:translate-x-1 motion-reduce:transition-none" />
+                            <ArrowUpRight className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px" />
                           </span>
                         </span>
                       </Link>
-                    </div>
-                  </h3>
-                  <p className="mt-2 text-sm leading-normal text-muted-foreground">
-                    {experience.description}
-                  </p>
-                  <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
-                    {experience.technologies.map((tech) => (
-                      <li key={tech} className="mr-1.5 mt-2">
-                        <div className="flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium leading-5 text-primary transition-all hover:bg-primary/20 hover:shadow-[0_0_10px_rgba(100,200,180,0.2)]">
-                          {tech}
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-[#d8f4ff]/82">{experience.description}</p>
+                    <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="Technologies used">
+                      {experience.technologies.map((tech) => (
+                        <li key={tech}>
+                          <div className="flex items-center rounded-full border border-[#64cfe5]/28 px-3 py-1 text-[11px] font-medium leading-5 text-[#cdefff]/74">
+                            {tech}
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
+              </article>
             </li>
           ))}
         </ol>
-        <div className="mt-12">
-          <Link
-            href="/resume.pdf"
-            className="group inline-flex items-center font-medium leading-tight text-foreground transition-colors hover:text-primary"
-          >
-            <span>Lihat Resume Lengkap</span>
-            <ArrowUpRight className="ml-1 h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
-          </Link>
-        </div>
       </div>
     </section>
   )

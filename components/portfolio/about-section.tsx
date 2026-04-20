@@ -1,56 +1,49 @@
-const highlights = [
-  { label: "Fokus", value: "AI + Software" },
-  { label: "Organisasi", value: "5+ Event" },
-  { label: "Minat", value: "Cybersecurity" },
-]
-
 const focusAreas = ["Laravel", "Flutter", "AI", "Cybersecurity", "UI/UX"]
 
 export function AboutSection() {
   return (
-    <section
-      id="about"
-      className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:min-h-[calc(100vh-7rem)] lg:scroll-mt-24"
-      aria-label="Tentang saya"
-    >
-      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-        <h2 className="text-sm font-bold uppercase tracking-widest text-foreground lg:sr-only">
-          Tentang
-        </h2>
-      </div>
-      <div className="space-y-4 pt-2 text-muted-foreground lg:pt-0">
-        <p>
-          Saya adalah mahasiswa Teknologi Informasi di Telkom University Jakarta dengan minat yang sangat tinggi di bidang Artificial Intelligence (AI). Untuk mengaplikasikan minat tersebut, saya berfokus pada software development menggunakan Laravel dan Flutter dengan pendekatan antarmuka yang user-centric. Saat ini, saya juga aktif mengeksplorasi ranah Cybersecurity guna memperluas wawasan teknis mengenai standar keamanan dalam pengembangan perangkat lunak.
-        </p>
-        <p>
-          Di luar kegiatan akademik dan pemrograman, saya aktif berorganisasi sebagai pengurus di UKM Seni dan Budaya. Keterlibatan ini melatih jiwa kepemimpinan, kemampuan komunikasi, kerja sama tim, dan manajemen waktu saya dalam menjalankan berbagai program kerja secara profesional.
-        </p>
-        <p>
-           Pada waktu luang, saya biasanya menyeimbangkan rutinitas logis dengan kegiatan kreatif. Saya senang mengerjakan proyek mandiri, mengeksplorasi tren teknologi terbaru, atau menyalurkan kreativitas melalui hobi saya.
-        </p>
-      </div>
-
-      <div className="mt-8 grid gap-3 sm:grid-cols-3">
-        {highlights.map((item) => (
-          <div
-            key={item.label}
-            className="rounded-xl border border-border/70 bg-secondary/30 px-4 py-3 backdrop-blur-sm"
-          >
-            <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">{item.label}</p>
-            <p className="mt-1 text-sm font-semibold text-foreground">{item.value}</p>
+    <section id="about" className="scroll-mt-24" aria-label="About me">
+      <div className="relative py-2">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#66d3e8]/36 to-transparent" />
+        <div className="grid gap-8 pt-8 md:pt-10 xl:grid-cols-[0.95fr_1.05fr] xl:gap-12">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#9ddff0]/82">About</p>
+            <h2 className="mt-3 max-w-lg text-[clamp(2rem,5.4vw,3.6rem)] font-semibold leading-[0.9] text-[#eefcff]">
+              Building reliable digital systems with human-centered thinking.
+            </h2>
           </div>
-        ))}
-      </div>
 
-      <div className="mt-4 flex flex-wrap gap-2">
-        {focusAreas.map((area) => (
-          <span
-            key={area}
-            className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
-          >
-            {area}
-          </span>
-        ))}
+          <div>
+            <div className="space-y-4 text-sm leading-relaxed text-[#d8f4ff]/82 md:text-base">
+              <p>
+                I am an Information Technology student at Telkom University Jakarta with a strong interest in
+                Artificial Intelligence. My main focus is building software for real-world use cases through a
+                systematic and user-centric approach.
+              </p>
+              <p>
+                Beyond academics, I am active in the Arts and Culture student organization. This experience has strengthened
+                my leadership, team collaboration, and program execution skills under time pressure.
+              </p>
+              <p>
+                I am also deepening my expertise in Cybersecurity to ensure every solution I build is not only effective,
+                but also robust from a security standpoint.
+              </p>
+            </div>
+
+            <div className="mt-6 border-t border-[#66d3e8]/22 pt-4">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#9ddff0]/72">Focus Areas</p>
+              <ul className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-[#cdefff]/86">
+                {focusAreas.map((area, index) => (
+                  <li key={area} className="flex items-center gap-3">
+                    <span>{area}</span>
+                    {index < focusAreas.length - 1 ? <span className="text-[#66d3e8]/35">/</span> : null}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#66d3e8]/30 to-transparent" />
       </div>
     </section>
   )

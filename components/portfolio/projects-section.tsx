@@ -1,96 +1,299 @@
 "use client"
 
-import { useMemo, useState } from "react"
-import Link from "next/link"
+import { useEffect, useMemo, useRef, useState } from "react"
 import Image from "next/image"
-import { ArrowUpRight, ExternalLink, Github } from "lucide-react"
+import Link from "next/link"
+import { ArrowLeft, ArrowRight, ArrowUpRight, Plus, X } from "lucide-react"
 
-const projects = [
+type ProjectShot = {
+  src: string
+  alt: string
+  caption: string
+}
+
+type ProjectItem = {
+  year: string
+  title: string
+  category: "IoT" | "Web" | "Mobile"
+  description: string
+  technologies: string[]
+  github: string
+  live: string
+  screenshots: ProjectShot[]
+}
+
+const projects: ProjectItem[] = [
   {
+    year: "2025",
     title: "Smartfeeder Fish IoT",
     category: "IoT",
-    image: "/proyek/ikan.jpeg",
-    imageAlt: "Tampilan proyek Smartfeeder Fish IoT",
     description:
-      "Sistem IoT untuk pemantauan dan pengendalian pakan ikan dengan fitur real-time monitoring dan notifikasi. Dibangun dengan fokus pada efisiensi dan kenyamanan pengguna.",
+      "An IoT system for monitoring and controlling fish feeding with real-time tracking and notifications, built for operational efficiency and user clarity.",
     technologies: ["Node.js", "ESP32", "MQTT", "React"],
     github: "https://github.com",
     live: "#",
+    screenshots: [
+      {
+        src: "/proyek/ocean/poster-smartfeeder.jpeg",
+        alt: "Smartfeeder dashboard for fish pond monitoring",
+        caption: "Real-time pond condition monitoring",
+      },
+      {
+        src: "/proyek/ocean/poster.jpeg",
+        alt: "Poster SmartFeeder Fish IoT",
+        caption: "Poster proyek SmartFeeder Fish IoT",
+      },
+      {
+        src: "/proyek/ocean/tampilan.jpeg",
+        alt: "Smartfeeder notification view",
+        caption: "Monitoring and alert view for feeding activity",
+      },
+    ],
   },
   {
-    title: "Dashboard Analytics",
+    year: "2026",
+    title: "EventKita",
     category: "Web",
-    image: "/placeholder.jpg",
-    imageAlt: "Tampilan dashboard analytics",
     description:
-      "Dashboard analitik real-time untuk monitoring metrics bisnis dengan visualisasi data interaktif dan laporan yang dapat di-customize.",
-    technologies: ["React", "D3.js", "Node.js", "PostgreSQL"],
+      "Platform web pemesanan tiket event hiburan yang berfokus pada konser musik. Berdasarkan artefak, alur pengguna mencakup daftar/masuk akun, eksplorasi event, detail event, checkout, pembayaran, hingga e-ticket digital. Di sisi pengelolaan, tersedia dashboard anggota dan dashboard admin untuk kelola event, kategori, kota, forum diskusi, serta moderasi konten.",
+    technologies: ["Laravel", "MySQL", "Bootstrap", "JavaScript"],
     github: "https://github.com",
     live: "#",
+    screenshots: [
+      {
+        src: "/proyek/eventkita/Musik-EventKita-Temukan-Event-Terbaik-01-05-2026_10_19_PM.png",
+        alt: "Beranda EventKita dengan daftar event konser",
+        caption: "Eksplorasi event hiburan dan konser musik",
+      },
+      {
+        src: "/proyek/eventkita/Checkout-Java-Jazz-Festival-2026-Temukan-Event-Terbaik-01-05-2026_10_22_PM.png",
+        alt: "Halaman checkout pemesanan tiket Java Jazz Festival",
+        caption: "Alur checkout tiket yang ringkas dan jelas",
+      },
+      {
+        src: "/proyek/eventkita/E-Ticket-Java-Jazz-Festival-2026-01-05-2026_10_24_PM.png",
+        alt: "Tampilan e-ticket setelah pembayaran berhasil",
+        caption: "E-ticket digital siap digunakan setelah transaksi",
+      },
+    ],
   },
   {
-    title: "Mobile Banking App",
-    category: "Mobile",
-    image: "/placeholder.jpg",
-    imageAlt: "Tampilan aplikasi mobile banking",
+    year: "2025",
+    title: "Greenlight",
+    category: "IoT",
     description:
-      "Aplikasi mobile banking dengan fitur transfer, pembayaran tagihan, dan manajemen keuangan personal dengan keamanan tingkat tinggi.",
-    technologies: ["React Native", "TypeScript", "Firebase", "Redux"],
+      "Greenlight adalah proyek perangkat pintar pemantau kualitas udara untuk lingkungan perkotaan. Solusi ini menggabungkan sensor kualitas udara, modul pemrosesan data, dan tampilan status real-time untuk membantu pengguna membaca kondisi udara secara cepat. Artefak proyek mencakup tahap konsep tim, visual prototipe 3D, hingga simulasi penerapan perangkat di area lalu lintas padat.",
+    technologies: ["ESP32", "Air Quality Sensor", "Embedded System", "3D Product Design"],
     github: "https://github.com",
     live: "#",
+    screenshots: [
+      {
+        src: "/proyek/Greenlight/dragon.jpeg",
+        alt: "Tim pengembang proyek Greenlight",
+        caption: "Dokumentasi tim pada tahap pengembangan Greenlight",
+      },
+      {
+        src: "/proyek/Greenlight/proto.jpeg",
+        alt: "Prototipe Greenlight pada simulasi lingkungan jalan raya",
+        caption: "Simulasi penerapan perangkat Greenlight di area urban",
+      },
+      {
+        src: "/proyek/Greenlight/prototype.jpeg",
+        alt: "Render desain produk Greenlight dan komponen internal",
+        caption: "Desain produk dan eksplorasi komponen Greenlight",
+      },
+    ],
   },
   {
+    year: "2023",
     title: "Weather App",
     category: "Web",
-    image: "/placeholder.jpg",
-    imageAlt: "Tampilan aplikasi cuaca",
-    description: "Aplikasi cuaca dengan lokasi real-time dan prakiraan 7 hari ke depan.",
+    description: "A weather application with real-time location and 7-day forecasting.",
     technologies: ["React", "Weather API", "Geolocation"],
     github: "https://github.com",
     live: "#",
+    screenshots: [
+      {
+        src: "/proyek/eventkita/Musik-EventKita-Temukan-Event-Terbaik-01-05-2026_10_19_PM.png",
+        alt: "Weather app main interface",
+        caption: "Current weather based on user location",
+      },
+      {
+        src: "/proyek/eventkita/Java-Jazz-Festival-2026-EventKita-Temukan-Event-Terbaik-01-05-2026_10_21_PM.png",
+        alt: "Weather app weekly forecast",
+        caption: "Seven-day forecast with temperature detail",
+      },
+      {
+        src: "/proyek/eventkita/Forum-Diskusi-Umum-EventKita-Temukan-Event-Terbaik-01-05-2026_10_20_PM.png",
+        alt: "Weather app detail screen",
+        caption: "Humidity, wind, and pressure details",
+      },
+    ],
   },
   {
+    year: "2023",
     title: "Task Manager",
     category: "Web",
-    image: "/placeholder.jpg",
-    imageAlt: "Tampilan aplikasi task manager",
-    description: "Aplikasi manajemen tugas dengan fitur drag-and-drop dan kolaborasi tim.",
+    description: "A task management application with drag-and-drop workflows and team collaboration.",
     technologies: ["Vue.js", "Firebase", "Vuetify"],
     github: "https://github.com",
     live: "#",
+    screenshots: [
+      {
+        src: "/proyek/eventkita/Kelola-Event-EventKita-01-05-2026_10_29_PM.png",
+        alt: "Task Manager main board",
+        caption: "Kanban board for team task management",
+      },
+      {
+        src: "/proyek/eventkita/Kelola-Kategori-EventKita-01-05-2026_10_31_PM.png",
+        alt: "Task Manager task details",
+        caption: "Task details, owner, and deadline",
+      },
+      {
+        src: "/proyek/eventkita/Moderasi-Diskusi-EventKita-01-05-2026_10_33_PM.png",
+        alt: "Task Manager activity log",
+        caption: "Collaboration activity timeline",
+      },
+    ],
   },
 ]
 
 export function ProjectsSection() {
   const [categoryFilter, setCategoryFilter] = useState<"All" | "IoT" | "Web" | "Mobile">("All")
+  const [expandedProject, setExpandedProject] = useState<string | null>(projects[0]?.title ?? null)
+  const [lightbox, setLightbox] = useState<{ projectTitle: string; shotIndex: number } | null>(null)
+  const projectRefs = useRef<Record<string, HTMLLIElement | null>>({})
 
   const filteredProjects = useMemo(() => {
     if (categoryFilter === "All") return projects
     return projects.filter((project) => project.category === categoryFilter)
   }, [categoryFilter])
 
+  useEffect(() => {
+    if (filteredProjects.length === 0) {
+      setExpandedProject(null)
+      return
+    }
+
+    const stillExists = filteredProjects.some((project) => project.title === expandedProject)
+    if (!stillExists) {
+      setExpandedProject(filteredProjects[0].title)
+    }
+  }, [expandedProject, filteredProjects])
+
+  useEffect(() => {
+    if (filteredProjects.length === 0) return
+
+    const visibilityMap = new Map<string, number>()
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const target = entry.target as HTMLElement
+          const title = target.dataset.projectTitle
+          if (!title) return
+
+          visibilityMap.set(title, entry.isIntersecting ? entry.intersectionRatio : 0)
+        })
+
+        let nextTitle: string | null = null
+        let maxRatio = 0
+
+        filteredProjects.forEach((project) => {
+          const ratio = visibilityMap.get(project.title) ?? 0
+          if (ratio > maxRatio) {
+            maxRatio = ratio
+            nextTitle = project.title
+          }
+        })
+
+        if (nextTitle && maxRatio > 0.15) {
+          setExpandedProject((prev) => (prev === nextTitle ? prev : nextTitle))
+        }
+      },
+      {
+        threshold: [0, 0.15, 0.3, 0.45, 0.6, 0.75],
+        rootMargin: "-12% 0px -38% 0px",
+      }
+    )
+
+    filteredProjects.forEach((project) => {
+      const element = projectRefs.current[project.title]
+      if (!element) return
+      visibilityMap.set(project.title, 0)
+      observer.observe(element)
+    })
+
+    return () => observer.disconnect()
+  }, [filteredProjects])
+
+  useEffect(() => {
+    if (!lightbox) return
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setLightbox(null)
+        return
+      }
+
+      if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+        setLightbox((prev) => {
+          if (!prev) return null
+          const project = projects.find((item) => item.title === prev.projectTitle)
+          if (!project || project.screenshots.length === 0) return null
+
+          const direction = event.key === "ArrowRight" ? 1 : -1
+          const nextIndex = (prev.shotIndex + direction + project.screenshots.length) % project.screenshots.length
+          return { ...prev, shotIndex: nextIndex }
+        })
+      }
+    }
+
+    window.addEventListener("keydown", onKeyDown)
+    return () => window.removeEventListener("keydown", onKeyDown)
+  }, [lightbox])
+
+  const activeProject = lightbox ? projects.find((item) => item.title === lightbox.projectTitle) ?? null : null
+  const activeShot = activeProject ? activeProject.screenshots[lightbox?.shotIndex ?? 0] : null
+
+  const shiftLightbox = (direction: 1 | -1) => {
+    setLightbox((prev) => {
+      if (!prev) return null
+      const project = projects.find((item) => item.title === prev.projectTitle)
+      if (!project || project.screenshots.length === 0) return null
+
+      const nextIndex = (prev.shotIndex + direction + project.screenshots.length) % project.screenshots.length
+      return { ...prev, shotIndex: nextIndex }
+    })
+  }
+
   return (
-    <section
-      id="projects"
-      className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24"
-      aria-label="Proyek yang dipilih"
-    >
-      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-        <h2 className="text-sm font-bold uppercase tracking-widest text-foreground lg:sr-only">
-          Proyek
-        </h2>
-      </div>
-      <div>
-        <div className="mb-6 flex flex-wrap gap-2">
+    <section id="projects" className="scroll-mt-24" aria-label="Selected projects">
+      <div className="relative">
+        <div className="pointer-events-none absolute -left-10 top-0 h-24 w-40 rounded-full bg-[#44cbe4]/10 blur-3xl" />
+
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#9ddff0]/84">Case Studies</p>
+            <h2 className="mt-3 text-[clamp(2rem,6vw,4.6rem)] font-semibold leading-[0.9] text-[#ecfbff]">Selected Projects</h2>
+          </div>
+          <span className="text-xs font-semibold uppercase tracking-[0.16em] text-[#9ddff0]/65">
+            {String(filteredProjects.length).padStart(2, "0")} Entries
+          </span>
+        </div>
+
+        <div className="mt-6 flex flex-wrap gap-2">
           {(["All", "IoT", "Web", "Mobile"] as const).map((category) => (
             <button
               key={category}
               type="button"
+              data-magnetic
+              data-cursor-label={category}
               onClick={() => setCategoryFilter(category)}
-              className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
+              className={`rounded-full border px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] transition-colors ${
                 categoryFilter === category
-                  ? "border-primary/40 bg-primary/15 text-primary"
-                  : "border-border bg-background/40 text-muted-foreground hover:text-foreground"
+                  ? "border-[#7fe3f4]/70 bg-[#7fe3f4] text-[#06232e]"
+                  : "border-[#64cfe5]/30 bg-transparent text-[#cdefff]/84 hover:border-[#7fe3f4]/55 hover:text-[#ecfbff]"
               }`}
             >
               {category}
@@ -98,90 +301,175 @@ export function ProjectsSection() {
           ))}
         </div>
 
-        <ul className="group/list">
-          {filteredProjects.map((project, index) => (
-            <li key={index} className="mb-12">
-              <div className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50">
-                <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-lg border border-transparent transition-all motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:border-primary/20 lg:group-hover:bg-secondary/50 lg:group-hover:shadow-[0_0_30px_rgba(100,200,180,0.08)]" />
-                <header className="z-10 sm:col-span-2">
-                  <div className="overflow-hidden rounded-2xl border border-border bg-secondary/40">
-                    <Image
-                      src={project.image}
-                      alt={project.imageAlt}
-                      width={640}
-                      height={400}
-                      className="h-40 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                    />
+        <ol className="mt-8 divide-y divide-[#64cfe5]/18 border-y border-[#64cfe5]/18">
+          {filteredProjects.map((project, index) => {
+            const isOpen = expandedProject === project.title
+
+            return (
+              <li
+                key={project.title}
+                ref={(element) => {
+                  projectRefs.current[project.title] = element
+                }}
+                data-project-title={project.title}
+                className="py-6 md:py-7 [content-visibility:auto] [contain-intrinsic-size:0_280px]"
+              >
+                <article className="group">
+                  <div className="grid gap-4 md:grid-cols-[110px_1fr_auto] md:gap-6">
+                    <div>
+                      <p className="font-mono text-xs text-[#9edff2]/58">{String(index + 1).padStart(2, "0")}</p>
+                      <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#9edff2]/76">{project.year}</p>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#9edff2]/58">{project.category}</p>
+                    </div>
+
+                    <div>
+                      <h3 className="text-[clamp(1.5rem,3.8vw,2.35rem)] font-semibold leading-[0.94] text-[#ecfbff]">
+                        {project.title}
+                      </h3>
+                      <p className="mt-3 max-w-3xl text-sm leading-relaxed text-[#d8f4ff]/82 md:text-base">{project.description}</p>
+                    </div>
+
+                    <button
+                      type="button"
+                      data-magnetic
+                      data-cursor-label="Details"
+                      onClick={() => setExpandedProject(project.title)}
+                      className="inline-flex h-fit items-center gap-1 self-start rounded-full border border-[#64cfe5]/30 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#cdefff]/84 transition-colors hover:border-[#7fe3f4]/55 hover:text-[#ecfbff]"
+                    >
+                      <Plus className={`h-3.5 w-3.5 transition-transform ${isOpen ? "rotate-45" : ""}`} />
+                      {isOpen ? "Active" : "Details"}
+                    </button>
                   </div>
 
-                  <div className="mt-4 flex gap-3">
-                    <Link
-                      href={project.github}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="text-muted-foreground transition-colors hover:text-foreground"
-                      aria-label="GitHub"
-                    >
-                      <Github className="h-5 w-5" />
-                    </Link>
-                    <Link
-                      href={project.live}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="text-muted-foreground transition-colors hover:text-primary"
-                      aria-label="Live Demo"
-                    >
-                      <ExternalLink className="h-5 w-5" />
-                    </Link>
-                  </div>
-                </header>
-                <div className="z-10 sm:col-span-6">
-                  <h3 className="font-medium leading-snug text-foreground">
-                    <Link
-                      href={project.live}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="group/link inline-flex items-baseline text-base font-medium leading-tight text-foreground transition-colors hover:text-primary focus-visible:text-primary"
-                    >
-                      <span className="absolute -inset-x-4 -inset-y-2.5 hidden rounded md:-inset-x-6 md:-inset-y-4 lg:block" />
-                      <span>
-                        {project.title}
-                        <span className="ml-2 rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 text-[11px] text-primary">
-                          {project.category}
-                        </span>
-                        <ArrowUpRight className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover/link:-translate-y-1 group-hover/link:translate-x-1" />
-                      </span>
-                    </Link>
-                  </h3>
-                  <p className="mt-2 text-sm leading-normal text-muted-foreground">
-                    {project.description}
-                  </p>
-                  <ul className="mt-2 flex flex-wrap" aria-label="Technologies used">
-                    {project.technologies.map((tech) => (
-                      <li key={tech} className="mr-1.5 mt-2">
-                        <div className="flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium leading-5 text-primary">
-                          {tech}
+                  <div className={`grid transition-[grid-template-rows,opacity,margin] duration-300 ${isOpen ? "mt-5 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
+                    <div className="overflow-hidden">
+                      <div className="grid gap-5 lg:grid-cols-[1fr_auto]">
+                        <div>
+                          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#9edff2]/76">Visual Preview</p>
+                          <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#9edff2]/56">Semua gambar langsung terlihat</p>
+                          <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-3">
+                            {project.screenshots.map((shot, shotIndex) => (
+                              <div key={`${project.title}-shot-${shotIndex}`} className="text-left">
+                                <div className="relative h-40 overflow-hidden rounded-lg border border-[#64cfe5]/28 bg-[#03121a] sm:h-48">
+                                  <Image
+                                    src={shot.src}
+                                    alt={shot.alt}
+                                    fill
+                                    sizes="(max-width: 768px) 50vw, 240px"
+                                    className="object-contain"
+                                  />
+                                </div>
+                                <p className="mt-1 truncate text-[10px] font-medium text-[#bde8f6]/74">{shot.caption}</p>
+                              </div>
+                            ))}
+                          </div>
+
+                          <ul className="mt-4 flex flex-wrap gap-x-3 gap-y-1" aria-label="Technologies used">
+                            {project.technologies.map((tech, techIndex) => (
+                              <li key={tech} className="flex items-center gap-3 text-xs font-medium text-[#cdefff]/76">
+                                <span>{tech}</span>
+                                {techIndex < project.technologies.length - 1 ? <span className="text-[#64cfe5]/36">/</span> : null}
+                              </li>
+                            ))}
+                          </ul>
                         </div>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-12">
-          <Link
-            href="https://github.com"
-            target="_blank"
-            rel="noreferrer noopener"
-            className="group inline-flex items-center font-medium leading-tight text-foreground transition-colors hover:text-primary"
-          >
-            <span>Lihat Semua Proyek di GitHub</span>
-            <ArrowUpRight className="ml-1 h-4 w-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
-          </Link>
-        </div>
+
+                        <div className="flex h-fit gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
+                          <Link
+                            href={project.live}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            data-magnetic
+                            data-cursor-label="Live"
+                            className="inline-flex items-center gap-1 text-[#9edff2]/84 transition-colors hover:text-[#ecfbff]"
+                          >
+                            Live
+                            <ArrowUpRight className="h-3.5 w-3.5" />
+                          </Link>
+                          <Link
+                            href={project.github}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                            data-magnetic
+                            data-cursor-label="GitHub"
+                            className="inline-flex items-center gap-1 text-[#9edff2]/84 transition-colors hover:text-[#ecfbff]"
+                          >
+                            GitHub
+                            <ArrowUpRight className="h-3.5 w-3.5" />
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </li>
+            )
+          })}
+        </ol>
       </div>
+
+      {lightbox && activeProject && activeShot ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Screenshot ${activeProject.title}`}
+          onClick={() => setLightbox(null)}
+        >
+          <div
+            className="relative w-full max-w-5xl rounded-2xl border border-[#64cfe5]/30 bg-[linear-gradient(180deg,rgba(5,18,28,0.96)_0%,rgba(4,10,18,0.98)_100%)] p-3 shadow-xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setLightbox(null)}
+              className="absolute right-3 top-3 rounded-full border border-[#64cfe5]/30 bg-black/70 p-1.5 text-[#cdefff]/80 transition-colors hover:text-[#ecfbff]"
+              aria-label="Close gallery"
+            >
+              <X className="h-4 w-4" />
+            </button>
+
+            <div className="relative h-[68vh] w-full overflow-hidden rounded-xl border border-[#64cfe5]/28 bg-[#030d14]">
+              <Image
+                src={activeShot.src}
+                alt={activeShot.alt}
+                fill
+                sizes="100vw"
+                className="object-contain"
+              />
+            </div>
+
+            <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <p className="text-sm font-semibold text-[#ecfbff]">{activeProject.title}</p>
+                <p className="mt-1 text-xs text-[#cdefff]/80">{activeShot.caption}</p>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-semibold uppercase tracking-[0.12em] text-[#9edff2]/72">
+                  {String((lightbox.shotIndex ?? 0) + 1).padStart(2, "0")} / {String(activeProject.screenshots.length).padStart(2, "0")}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => shiftLightbox(-1)}
+                  className="rounded-full border border-[#64cfe5]/30 p-2 text-[#cdefff]/80 transition-colors hover:text-[#ecfbff]"
+                  aria-label="Previous screenshot"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => shiftLightbox(1)}
+                  className="rounded-full border border-[#64cfe5]/30 p-2 text-[#cdefff]/80 transition-colors hover:text-[#ecfbff]"
+                  aria-label="Next screenshot"
+                >
+                  <ArrowRight className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </section>
   )
 }
