@@ -1,6 +1,11 @@
 "use client"
 
-import { useEffect, useMemo, useRef, useState } from "react"
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, ArrowRight, ArrowUpRight, Plus, X } from "lucide-react"
@@ -40,16 +45,32 @@ const projects: ProjectItem[] = [
       },
       {
         src: "/proyek/ocean/poster.jpeg",
+        alt: "Render desain produk Greenlight dan komponen internal",
+        caption: "Desain produk dan eksplorasi komponen Greenlight",
+      },
+      {
+        src: "/proyek/ocean/main.png",
         alt: "Poster SmartFeeder Fish IoT",
         caption: "Poster proyek SmartFeeder Fish IoT",
       },
       {
-        src: "/proyek/ocean/tampilan.jpeg",
+        src: "/proyek/ocean/iot.png",
+        alt: "Smartfeeder notification view",
+        caption: "Monitoring and alert view for feeding activity",
+      },
+      {
+        src: "/proyek/ocean/suhu.png",
+        alt: "Smartfeeder notification view",
+        caption: "Monitoring and alert view for feeding activity",
+      },
+      {
+        src: "/proyek/ocean/ph.png",
         alt: "Smartfeeder notification view",
         caption: "Monitoring and alert view for feeding activity",
       },
     ],
   },
+
   {
     year: "2026",
     title: "EventKita",
@@ -61,17 +82,32 @@ const projects: ProjectItem[] = [
     live: "#",
     screenshots: [
       {
-        src: "/proyek/eventkita/Musik-EventKita-Temukan-Event-Terbaik-01-05-2026_10_19_PM.png",
+        src: "/proyek/eventkita/daftar.png",
         alt: "Beranda EventKita dengan daftar event konser",
         caption: "Eksplorasi event hiburan dan konser musik",
       },
       {
-        src: "/proyek/eventkita/Checkout-Java-Jazz-Festival-2026-Temukan-Event-Terbaik-01-05-2026_10_22_PM.png",
+        src: "/proyek/eventkita/dashboard1.png",
         alt: "Halaman checkout pemesanan tiket Java Jazz Festival",
         caption: "Alur checkout tiket yang ringkas dan jelas",
       },
       {
-        src: "/proyek/eventkita/E-Ticket-Java-Jazz-Festival-2026-01-05-2026_10_24_PM.png",
+        src: "/proyek/eventkita/checkout.png",
+        alt: "Tampilan e-ticket setelah pembayaran berhasil",
+        caption: "E-ticket digital siap digunakan setelah transaksi",
+      },
+      {
+        src: "/proyek/eventkita/checkout2.png",
+        alt: "Tampilan e-ticket setelah pembayaran berhasil",
+        caption: "E-ticket digital siap digunakan setelah transaksi",
+      },
+      {
+        src: "/proyek/eventkita/pembayaran.png",
+        alt: "Tampilan e-ticket setelah pembayaran berhasil",
+        caption: "E-ticket digital siap digunakan setelah transaksi",
+      },
+     {
+        src: "/proyek/eventkita/etiket.png",
         alt: "Tampilan e-ticket setelah pembayaran berhasil",
         caption: "E-ticket digital siap digunakan setelah transaksi",
       },
@@ -79,7 +115,7 @@ const projects: ProjectItem[] = [
   },
   {
     year: "2025",
-    title: "Greenlight",
+    title: "Greenlight Air",
     category: "IoT",
     description:
       "Greenlight adalah proyek perangkat pintar pemantau kualitas udara untuk lingkungan perkotaan. Solusi ini menggabungkan sensor kualitas udara, modul pemrosesan data, dan tampilan status real-time untuk membantu pengguna membaca kondisi udara secara cepat. Artefak proyek mencakup tahap konsep tim, visual prototipe 3D, hingga simulasi penerapan perangkat di area lalu lintas padat.",
@@ -93,12 +129,22 @@ const projects: ProjectItem[] = [
         caption: "Dokumentasi tim pada tahap pengembangan Greenlight",
       },
       {
-        src: "/proyek/Greenlight/proto.jpeg",
+        src: "/proyek/Greenlight/awal.jpeg",
         alt: "Prototipe Greenlight pada simulasi lingkungan jalan raya",
         caption: "Simulasi penerapan perangkat Greenlight di area urban",
       },
       {
-        src: "/proyek/Greenlight/prototype.jpeg",
+        src: "/proyek/Greenlight/awal2.jpeg",
+        alt: "Render desain produk Greenlight dan komponen internal",
+        caption: "Desain produk dan eksplorasi komponen Greenlight",
+      },
+       {
+        src: "/proyek/Greenlight/jadi.jpeg",
+        alt: "Render desain produk Greenlight dan komponen internal",
+        caption: "Desain produk dan eksplorasi komponen Greenlight",
+      },
+       {
+        src: "/proyek/Greenlight/proto.jpeg",
         alt: "Render desain produk Greenlight dan komponen internal",
         caption: "Desain produk dan eksplorasi komponen Greenlight",
       },
@@ -106,7 +152,7 @@ const projects: ProjectItem[] = [
   },
   {
     year: "2023",
-    title: "Weather App",
+    title: "Growell",
     category: "Web",
     description: "A weather application with real-time location and 7-day forecasting.",
     technologies: ["React", "Weather API", "Geolocation"],
@@ -114,17 +160,27 @@ const projects: ProjectItem[] = [
     live: "#",
     screenshots: [
       {
-        src: "/proyek/eventkita/Musik-EventKita-Temukan-Event-Terbaik-01-05-2026_10_19_PM.png",
+        src: "/proyek/growell/login.png",
         alt: "Weather app main interface",
         caption: "Current weather based on user location",
       },
       {
-        src: "/proyek/eventkita/Java-Jazz-Festival-2026-EventKita-Temukan-Event-Terbaik-01-05-2026_10_21_PM.png",
+        src: "/proyek/growell/dashboard.png",
         alt: "Weather app weekly forecast",
         caption: "Seven-day forecast with temperature detail",
       },
       {
-        src: "/proyek/eventkita/Forum-Diskusi-Umum-EventKita-Temukan-Event-Terbaik-01-05-2026_10_20_PM.png",
+        src: "/proyek/growell/gizi.png",
+        alt: "Weather app detail screen",
+        caption: "Humidity, wind, and pressure details",
+      },
+      {
+        src: "/proyek/growell/konsultasi.png",
+        alt: "Weather app detail screen",
+        caption: "Humidity, wind, and pressure details",
+      },
+      {
+        src: "/proyek/growell/dashboard2.png",
         alt: "Weather app detail screen",
         caption: "Humidity, wind, and pressure details",
       },
@@ -132,7 +188,7 @@ const projects: ProjectItem[] = [
   },
   {
     year: "2023",
-    title: "Task Manager",
+    title: "E kost",
     category: "Web",
     description: "A task management application with drag-and-drop workflows and team collaboration.",
     technologies: ["Vue.js", "Firebase", "Vuetify"],
@@ -140,17 +196,17 @@ const projects: ProjectItem[] = [
     live: "#",
     screenshots: [
       {
-        src: "/proyek/eventkita/Kelola-Event-EventKita-01-05-2026_10_29_PM.png",
+        src: "/proyek/ekost/Kelola-Event-EventKita-01-05-2026_10_29_PM.png",
         alt: "Task Manager main board",
         caption: "Kanban board for team task management",
       },
       {
-        src: "/proyek/eventkita/Kelola-Kategori-EventKita-01-05-2026_10_31_PM.png",
+        src: "/proyek/ekost/Kelola-Kategori-EventKita-01-05-2026_10_31_PM.png",
         alt: "Task Manager task details",
         caption: "Task details, owner, and deadline",
       },
       {
-        src: "/proyek/eventkita/Moderasi-Diskusi-EventKita-01-05-2026_10_33_PM.png",
+        src: "/proyek/ekost/Moderasi-Diskusi-EventKita-01-05-2026_10_33_PM.png",
         alt: "Task Manager activity log",
         caption: "Collaboration activity timeline",
       },
@@ -345,24 +401,60 @@ export function ProjectsSection() {
                     <div className="overflow-hidden">
                       <div className="grid gap-5 lg:grid-cols-[1fr_auto]">
                         <div>
-                          <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#9edff2]/76">Visual Preview</p>
-                          <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#9edff2]/56">Semua gambar langsung terlihat</p>
-                          <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-3">
-                            {project.screenshots.map((shot, shotIndex) => (
-                              <div key={`${project.title}-shot-${shotIndex}`} className="text-left">
-                                <div className="relative h-40 overflow-hidden rounded-lg border border-[#64cfe5]/28 bg-[#03121a] sm:h-48">
-                                  <Image
-                                    src={shot.src}
-                                    alt={shot.alt}
-                                    fill
-                                    sizes="(max-width: 768px) 50vw, 240px"
-                                    className="object-contain"
-                                  />
-                                </div>
-                                <p className="mt-1 truncate text-[10px] font-medium text-[#bde8f6]/74">{shot.caption}</p>
-                              </div>
-                            ))}
+                          <div className="flex flex-wrap items-end justify-between gap-2">
+                            <div>
+                              <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#9edff2]/76">Visual Preview</p>
+                              <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#9edff2]/56">
+                                {project.screenshots.length > 3 ? "Auto-scroll loop aktif" : "Semua gambar langsung terlihat"}
+                              </p>
+                            </div>
                           </div>
+
+                          {project.screenshots.length > 3 ? (
+                            <div
+                              className="mt-2 overflow-hidden pb-2"
+                              style={{
+                                ["--marquee-duration" as string]: `${Math.max(project.screenshots.length * 4.5, 20)}s`,
+                              }}
+                            >
+                              <div className="project-marquee-track">
+                                {[...project.screenshots, ...project.screenshots].map((shot, shotIndex) => (
+                                <div
+                                  key={`${project.title}-loop-shot-${shotIndex}`}
+                                  className="project-marquee-item w-[86vw] shrink-0 text-left sm:w-[320px] lg:w-[360px]"
+                                >
+                                  <div className="relative h-60 overflow-hidden rounded-lg border border-[#64cfe5]/28 bg-[#03121a] sm:h-80">
+                                    <Image
+                                      src={shot.src}
+                                      alt={shot.alt}
+                                      fill
+                                      sizes="(max-width: 640px) 75vw, 250px"
+                                      className="object-cover object-center"
+                                    />
+                                  </div>
+                                  <p className="mt-1 truncate text-[10px] font-medium text-[#bde8f6]/74">{shot.caption}</p>
+                                </div>
+                                ))}
+                              </div>
+                            </div>
+                          ) : (
+                            <div className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-3">
+                              {project.screenshots.map((shot, shotIndex) => (
+                                <div key={`${project.title}-shot-${shotIndex}`} className="text-left">
+                                  <div className="relative h-60 overflow-hidden rounded-lg border border-[#64cfe5]/28 bg-[#03121a] sm:h-80">
+                                    <Image
+                                      src={shot.src}
+                                      alt={shot.alt}
+                                      fill
+                                      sizes="(max-width: 768px) 50vw, 240px"
+                                      className="object-cover object-center"
+                                    />
+                                  </div>
+                                  <p className="mt-1 truncate text-[10px] font-medium text-[#bde8f6]/74">{shot.caption}</p>
+                                </div>
+                              ))}
+                            </div>
+                          )}
 
                           <ul className="mt-4 flex flex-wrap gap-x-3 gap-y-1" aria-label="Technologies used">
                             {project.technologies.map((tech, techIndex) => (
@@ -435,7 +527,7 @@ export function ProjectsSection() {
                 alt={activeShot.alt}
                 fill
                 sizes="100vw"
-                className="object-contain"
+                className="object-cover object-center"
               />
             </div>
 

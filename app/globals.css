@@ -230,6 +230,27 @@
 }
 
 @layer utilities {
+  @keyframes project-marquee-loop {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  .project-marquee-track {
+    display: flex;
+    width: max-content;
+    gap: 0.75rem;
+    will-change: transform;
+    animation: project-marquee-loop var(--marquee-duration, 24s) linear infinite;
+  }
+
+  .project-marquee-item {
+    flex: 0 0 auto;
+  }
+
   .reveal {
     opacity: 0;
     transform: translate3d(0, 16px, 0);
@@ -262,5 +283,6 @@
     color: rgba(214, 248, 255, 0.95) !important;
     text-shadow: 0 0 10px rgba(95, 213, 240, 0.2) !important;
   }
+
 }
 
