@@ -7,50 +7,50 @@ import { ArrowUpRight } from "lucide-react"
 const experiences = [
     {
     period: "2024",
-    position: "Kepala Divisi",
-    title: "Divisi Band",
-    company: "Seni dan Budaya Telkom University",
+    position: "Division Head",
+    title: "Music Band Division",
+    company: "Arts and Culture at Telkom University",
     companyUrl: "#",
     image: "/pengalaman/band.jpeg",
-      imageAlt: "Dokumentasi kegiatan Divisi Band Seni dan Budaya Telkom University",
+      imageAlt: "Documentation of Music Band Division at Telkom University",
     description:
-        "Memimpin perencanaan program kerja Divisi Band, mengoordinasikan anggota untuk latihan dan penampilan, serta memastikan setiap agenda berjalan terstruktur dan tepat waktu.",
+        "Leading the Music Band Division work program planning, coordinating members for rehearsals and performances, and ensuring every agenda runs structured and on time.",
     technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
   },
   {
     period: "2024",
-    position: "Staff Divisi Acara",
+    position: "Event Division Staff",
     title: "Student Fair",
-    company: "Seni dan Budaya Telkom University",
+    company: "Arts and Culture at Telkom University",
     companyUrl: "#",
     image: "/pengalaman/pkkmb.jpeg",
-    imageAlt: "Dokumentasi kepanitiaan Student Fair Seni dan Budaya",
+    imageAlt: "Documentation of Student Fair Event Division",
     description:
-      "Berperan sebagai staf divisi acara dalam menyusun alur kegiatan Student Fair, menyiapkan kebutuhan teknis lapangan, dan membantu koordinasi antar panitia saat pelaksanaan.",
+      "Served as event division staff in organizing Student Fair activities, preparing technical field requirements, and assisting coordination among committees during implementation.",
     technologies: ["Vue.js", "JavaScript", "SCSS", "Node.js"],
   },
   {
     period: "2024",
-    position: "Staff Divisi Logistik",
+    position: "Logistics Division Staff",
     title: "Student Fair",
-    company: "Himpunan Mahasiswa Teknologi Informasi",
+    company: "Information Technology Student Association",
     companyUrl: "#",
     image: "/pengalaman/HMIT.jpeg",
-    imageAlt: "Dokumentasi tim logistik Student Fair HMTI",
+    imageAlt: "Documentation of Student Fair logistics team",
     description:
-      "Menangani kebutuhan logistik acara mulai dari pendataan perlengkapan, distribusi peralatan, hingga memastikan kesiapan sarana sebelum dan selama kegiatan berlangsung.",
+      "Managed event logistics needs from equipment data collection, equipment distribution, to ensuring facilities readiness before and during the event.",
     technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
   },
   {
     period: "2025",
-    position: "Koordinator Acara",
+    position: "Event Coordinator",
     title: "Student Fair",
-    company: "Seni dan Budaya Telkom University",
+    company: "Arts and Culture at Telkom University",
     companyUrl: "#",
     image: "/pengalaman/senibudaya.jpeg",
-    imageAlt: "Dokumentasi koordinasi acara Student Fair 2025",
+    imageAlt: "Documentation of Student Fair 2025 event coordination",
     description:
-      "Mengkoordinasikan rangkaian acara Student Fair 2025, mengatur timeline pelaksanaan, serta menjadi penghubung utama antara tim acara, talent, dan panitia inti.",
+      "Coordinated the Student Fair 2025 event series, arranged implementation timeline, and served as main liaison between event team, talent, and core committee.",
     technologies: ["Vue.js", "JavaScript", "SCSS", "Node.js"],
   },
   {
@@ -60,32 +60,32 @@ const experiences = [
     company: "Telkom University",
     companyUrl: "#",
     image: "/pengalaman/ino.jpeg",
-    imageAlt: "Dokumentasi aktivitas IT Support Innovillage 2024",
+    imageAlt: "Documentation of IT Support activities for Innovillage 2024",
     description:
-      "Mendukung kebutuhan teknis tim selama program Innovillage, termasuk troubleshooting perangkat, manajemen konektivitas, dan memastikan operasional teknologi berjalan stabil.",
+      "Supported technical needs of the team during Innovillage program, including device troubleshooting, connectivity management, and ensuring stable technology operations.",
     technologies: ["HTML", "CSS", "JavaScript", "React"],
   },
   {
     period: "2025",
-    position: "Wakil Ketua Umum",
-    title: "Seni dan Budaya",
-    company: "Seni dan Budaya Telkom University",
+    position: "Vice General Chair",
+    title: "Arts and Culture",
+    company: "Arts and Culture at Telkom University",
     companyUrl: "#",
     image: "/pengalaman/wakil.jpeg",
-    imageAlt: "Dokumentasi kegiatan organisasi saat menjabat Wakil Ketua Umum",
+    imageAlt: "Documentation of organization activities as Vice General Chair",
     description:
-      "Membantu ketua umum dalam pengambilan keputusan strategis organisasi, mengawal pelaksanaan program kerja, dan memperkuat koordinasi lintas divisi.",
+      "Assisted general chair in strategic organizational decision-making, oversaw work program implementation, and strengthened cross-division coordination.",
     technologies: ["HTML", "CSS", "JavaScript", "React"],  },
   {
     period: "2025",
-    position: "Pembawa Acara",
-    title: "Pengabdian Masyarakat",
+    position: "Master of Ceremony",
+    title: "Community Service",
     company: "Telkom University",
     companyUrl: "#",
     image: "/pengalaman/pengmas.jpg",
-    imageAlt: "Dokumentasi kegiatan pembawa acara Pengabdian Masyarakat",
+    imageAlt: "Documentation of master of ceremony for Community Service",
     description:
-      "Menjadi pembawa acara pada kegiatan pengabdian masyarakat, menjaga alur acara tetap komunikatif, dan memastikan interaksi peserta berjalan aktif serta tertib.",
+      "Served as master of ceremony for community service activities, kept event flow communicative, and ensured participant interaction ran actively and orderly.",
     technologies: ["HTML", "CSS", "JavaScript", "React"],
   },
 ]
@@ -115,7 +115,7 @@ export function ExperienceSection() {
           <button
             type="button"
             data-magnetic
-            data-cursor-label="Semua"
+            data-cursor-label="All"
             onClick={() => setYearFilter("all")}
             className={`rounded-full border px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] transition-colors ${
               yearFilter === "all"
@@ -123,7 +123,7 @@ export function ExperienceSection() {
                 : "border-[#64cfe5]/30 bg-transparent text-[#cdefff]/84 hover:border-[#7fe3f4]/55 hover:text-[#ecfbff]"
             }`}
           >
-            Semua
+            All
           </button>
           <button
             type="button"
@@ -136,7 +136,7 @@ export function ExperienceSection() {
                 : "border-[#64cfe5]/30 bg-transparent text-[#cdefff]/84 hover:border-[#7fe3f4]/55 hover:text-[#ecfbff]"
             }`}
           >
-            Tahun 2024
+            Year 2024
           </button>
           <button
             type="button"

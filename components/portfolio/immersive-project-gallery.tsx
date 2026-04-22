@@ -33,9 +33,9 @@ const projects = [
   {
     name: "EventKita",
     category: "Ticketing Web",
-    short: "Web pemesanan tiket event hiburan dengan fokus pada konser musik, checkout, dan e-ticket digital.",
+    short: "An entertainment event ticketing platform focused on music concerts with checkout and digital e-ticket features.",
     detail:
-      "EventKita dirancang sebagai platform end-to-end untuk discovery dan pembelian tiket event. Berdasarkan artefak yang tersedia, alurnya mencakup registrasi dan login pengguna, katalog event musik seperti Java Jazz Festival 2026, halaman detail event, proses checkout dan pembayaran, hingga penerbitan e-ticket. Platform juga menyediakan dashboard anggota untuk melihat aktivitas pembelian dan dashboard admin untuk kelola event, kategori, kota, forum diskusi, serta moderasi percakapan agar ekosistem komunitas tetap aktif dan terstruktur.",
+      "EventKita is designed as an end-to-end platform for event discovery and ticket purchasing. Based on available artifacts, the user flow includes user registration and login, music event catalog like Java Jazz Festival 2026, event detail pages, checkout and payment process, and e-ticket issuance. The platform also provides member dashboard to view purchase activities and admin dashboard to manage events, categories, cities, discussion forums, and moderate conversations to keep the community ecosystem active and structured.",
     tags: ["Ticketing Flow", "Event Discovery", "Admin Dashboard"],
     year: "2026",
     image: "/proyek/eventkita/Java-Jazz-Festival-2026-EventKita-Temukan-Event-Terbaik-01-05-2026_10_21_PM.png",

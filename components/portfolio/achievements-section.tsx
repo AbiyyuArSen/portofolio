@@ -20,60 +20,60 @@ type AchievementItem = {
 const achievements: AchievementItem[] = [
   {
     year: "2024",
-    title: "Penghargaan Tim Terbaik",
-    issuer: "Triwulan 3 - Telkom University",
+    title: "Best Team Award",
+    issuer: "Q3 - Telkom University",
     description:
-      "Menerima penghargaan dari kampus atas pencapaian Juara 1 pada lomba band tingkat nasional Telkom Jaya Abadi.",
+      "Received campus award for achievement of 1st Place in Telkom Jaya Abadi national level band competition.",
     type: "award",
-    impact: "Menjadi bentuk apresiasi resmi kampus terhadap prestasi kompetitif dan kontribusi di bidang seni.",
+    impact: "Formal recognition from campus of competitive achievement and contribution in arts.",
     image: "/awards/juara 1 band.png",
-    imageAlt: "Sertifikat penghargaan Juara 1 Band",
+    imageAlt: "1st Place Band Award Certificate",
   },
   {
     year: "2024",
     title: "Telkom Jaya Abadi",
-    issuer: "Ocean fest vol. 2 - Universitas PGRI Madiun",
+    issuer: "Ocean fest vol. 2 - PGRI Madiun University",
     description:
-      "Meraih Juara 1 pada ajang Telkom Jaya Abadi, sebuah lomba band tingkat nasional dengan kompetisi lintas perguruan tinggi.",
+      "Achieved 1st Place at Telkom Jaya Abadi, a national level band competition with cross-university participation.",
     type: "award",
-    impact: "Meningkatkan reputasi tim di level nasional dan membuka peluang kolaborasi serta eksposur yang lebih luas.",
+    impact: "Enhanced team reputation at national level and opened collaboration opportunities and wider exposure.",
     image: "/awards/TJA.jpg",
-    imageAlt: "Sertifikat penghargaan Telkom Jaya Abadi",
+    imageAlt: "Telkom Jaya Abadi Award Certificate",
   },
   {
     year: "2024 - 2025",
-    title: "Tim Support",
+    title: "Support Team",
     issuer: "Innovillage - Telkom University",
     description:
-      "Berperan sebagai tim support untuk memastikan kebutuhan teknis berjalan stabil, membantu troubleshooting cepat, dan menjaga kelancaran operasional kegiatan.",
+      "Served as support team to ensure technical needs run stably, assist with quick troubleshooting, and maintain smooth event operations.",
     type: "achievement",
-    impact: "Waktu penanganan kendala teknis lebih cepat dan kualitas pelaksanaan program lebih terjaga.",
+    impact: "Faster technical issue resolution time and better program implementation quality.",
     image: "/awards/sertif ino.jpg",
-    imageAlt: "Sertifikat kontribusi Tim Support",
+    imageAlt: "Support Team Contribution Certificate",
   },
   {
     year: "2025",
     title: "Google Cloud Cybersecurity Certificate",
     issuer: "Google Cloud",
     description:
-      "Menyelesaikan program sertifikasi yang mempersiapkan kompetensi cloud security analyst, cybersecurity specialist, dan incident response analyst.",
+      "Completed certification program preparing competency for cloud security analyst, cybersecurity specialist, and incident response analyst roles.",
     type: "achievement",
     impact:
-      "Memperkuat fondasi keamanan siber pada network security, threat analysis, SQL, incident detection, dan dokumentasi respons insiden.",
+      "Strengthened cybersecurity foundations in network security, threat analysis, SQL, incident detection, and incident response documentation.",
     image: "/awards/cyber.png",
-    imageAlt: "Sertifikat Google Cloud Cybersecurity",
+    imageAlt: "Google Cloud Cybersecurity Certificate",
   },
   {
     year: "2025",
-    title: "Inovasi Digital Pencegahan Stunting Melalui Aplikasi Growell dengan Pendekatan User-Centered Design",
+    title: "Digital Innovation for Stunting Prevention Through Growell Application with User-Centered Design Approach",
     issuer: "Journal of Informatics and Communication Technology (JICT) - Vol. 7 No. 1",
     description:
-      "Terpublikasi sebagai co-author bersama tim penulis dari Telkom University Jakarta. Artikel dipublikasikan pada 22 Juli 2025 dengan fokus inovasi aplikasi kesehatan digital untuk pencegahan stunting.",
+      "Published as co-author with research team from Telkom University Jakarta. Article published on July 22, 2025 focusing on digital health application innovation for stunting prevention.",
     type: "achievement",
     impact:
-      "Memperkuat kredibilitas akademik di bidang riset terapan, khususnya pada usability, user-centered design, dan pemanfaatan solusi digital di sektor kesehatan.",
+      "Strengthened academic credibility in applied research field, particularly in usability, user-centered design, and digital solutions utilization in healthcare sector.",
     image: "/awards/jurnal.png",
-    imageAlt: "Sertifikat Publikasi Jurnal",
+    imageAlt: "Journal Publication Certificate",
   },
 ]
 
@@ -147,7 +147,7 @@ export function AchievementsSection() {
           </div>
 
           <p className="max-w-3xl text-sm leading-relaxed text-[#d8f4ff]/82 md:text-base">
-            Kumpulan penghargaan dan milestone yang mencerminkan kontribusi saya di organisasi, kegiatan kampus, dan program pengembangan diri.
+            A collection of awards and milestones that reflect my contributions in organizations, campus activities, and self-development programs.
           </p>
 
           <div className="flex flex-wrap gap-2 text-xs font-medium">
@@ -169,7 +169,7 @@ export function AchievementsSection() {
                 : "border-[#64cfe5]/30 bg-transparent text-[#cdefff]/84 hover:border-[#7fe3f4]/55 hover:text-[#ecfbff]"
             }`}
           >
-            Semua
+            All
           </button>
           <button
             type="button"
