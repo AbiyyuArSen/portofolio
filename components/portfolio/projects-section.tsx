@@ -393,7 +393,7 @@ export function ProjectsSection() {
                       className="inline-flex h-fit items-center gap-1 self-start rounded-full border border-[#64cfe5]/30 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#cdefff]/84 transition-colors hover:border-[#7fe3f4]/55 hover:text-[#ecfbff]"
                     >
                       <Plus className={`h-3.5 w-3.5 transition-transform ${isOpen ? "rotate-45" : ""}`} />
-                      {isOpen ? "Active" : "Details"}
+                      Details
                     </button>
                   </div>
 
@@ -404,9 +404,6 @@ export function ProjectsSection() {
                           <div className="flex flex-wrap items-end justify-between gap-2">
                             <div>
                               <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#9edff2]/76">Visual Preview</p>
-                              <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#9edff2]/56">
-                                {project.screenshots.length > 3 ? "Auto-scroll loop aktif" : "Semua gambar langsung terlihat"}
-                              </p>
                             </div>
                           </div>
 
